@@ -1253,8 +1253,8 @@
 </g>
 </svg>
 
+<!--DROPDOWN MENUS JS-->
 <script>
-
     function toggleDropdown() {
         const dropdown = document.getElementById('dropdown');
         dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
@@ -1264,9 +1264,9 @@
     const dropdown = document.getElementById('menu-dropdown');
     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
 }
-
 </script>
 
+<!--LANGUAGE SWITCH JS-->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const languageSwitcher = document.querySelector(".language-switcher");
@@ -1313,14 +1313,24 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add click event to the language switcher
     languageSwitcher.addEventListener("click", switchLanguage);
 });
-
-
 </script>
 
-
-
-
-
+<!--SVG TOUCH MOBILE JS-->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select all leaves with the class "leaf"
+        const leaves = document.querySelectorAll(".leaf");
+    
+        leaves.forEach(leaf => {
+            leaf.addEventListener("click", function () {
+                const textElement = this.nextElementSibling; // Assuming text is right after the leaf
+                if (textElement) {
+                    textElement.classList.toggle("visible"); // Toggle visibility
+                }
+            });
+        });
+    });
+    </script>
 
 </body>
 </html>
