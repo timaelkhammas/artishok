@@ -1426,6 +1426,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const popupText = document.getElementById("popupText");
         const closeButton = document.querySelector(".close-btn");
 
+        let activeLeaf = null; // Store the currently clicked leaf
+
         leaves.forEach(leaf => {
             leaf.addEventListener("click", function () {
                 // Get the name and text from the leaf's attributes
@@ -1439,24 +1441,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Show the popup
                 popup.style.display = "flex";
 
-                // Store reference to clicked leaf
-                popup.setAttribute("data-active-leaf", this.classList.contains("leaf") ? this.dataset.name : "");
+                // Store reference to the clicked leaf
+                activeLeaf = this;
             });
         });
 
         // Close the popup when the close button is clicked
         closeButton.addEventListener("click", function () {
-            // Hide the popup
-            popup.style.display = "none";
-
-            // Hide the active leaf (if applicable)
-            const activeLeafName = popup.getAttribute("data-active-leaf");
-            if (activeLeafName) {
-                const activeLeaf = document.querySelector(`.leaf[data-name='${activeLeafName}']`);
-                if (activeLeaf) {
-                    activeLeaf.style.opacity = "0"; // Hide the leaf
-                }
+            if (activeLeaf) {
+                activeLeaf.style.opacity = "0"; // Hide the leaf
+                activeLeaf = null; // Reset active leaf reference
             }
+
+            popup.style.display = "none"; // Immediately close the popup
         });
     });
 </script>
