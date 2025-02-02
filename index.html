@@ -1421,28 +1421,46 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener("DOMContentLoaded", function () {
         // Select all leaves
         const leaves = document.querySelectorAll(".leaf");
-    
+        const popup = document.getElementById("leafPopup");
+        const popupName = document.getElementById("popupName");
+        const popupText = document.getElementById("popupText");
+        const closeButton = document.querySelector(".close-btn");
+
         leaves.forEach(leaf => {
             leaf.addEventListener("click", function () {
                 // Get the name and text from the leaf's attributes
                 const name = this.getAttribute("data-name");
                 const text = this.getAttribute("data-text");
-    
+
                 // Insert name and text into the popup
-                document.getElementById("popupName").textContent = name;
-                document.getElementById("popupText").innerHTML = text; // Use innerHTML to parse <br>
-    
+                popupName.textContent = name;
+                popupText.innerHTML = text; // Use innerHTML to parse <br>
+
                 // Show the popup
-                document.getElementById("leafPopup").style.display = "flex";
+                popup.style.display = "flex";
+
+                // Store reference to clicked leaf
+                popup.setAttribute("data-active-leaf", this.classList.contains("leaf") ? this.dataset.name : "");
             });
         });
+
+        // Close the popup when the close button is clicked
+        closeButton.addEventListener("click", function () {
+            // Hide the popup
+            popup.style.display = "none";
+
+            // Hide the active leaf (if applicable)
+            const activeLeafName = popup.getAttribute("data-active-leaf");
+            if (activeLeafName) {
+                const activeLeaf = document.querySelector(`.leaf[data-name='${activeLeafName}']`);
+                if (activeLeaf) {
+                    activeLeaf.style.opacity = "0"; // Hide the leaf
+                }
+            }
+        });
     });
-    
-    // Close the popup when the close button is clicked
-    function closePopup() {
-        document.getElementById("leafPopup").style.display = "none";
-    }
-    </script>
+</script>
+
     
 
 </body>
