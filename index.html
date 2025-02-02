@@ -1416,7 +1416,6 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 
 
-<!-- SVG TEXTS -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Select all leaves
@@ -1442,8 +1441,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Store the clicked leaf as a data attribute
                 popup.setAttribute("data-active-leaf", this.dataset.name);
 
-                // Immediately hide the leaf when the popup is opened
+                // Keep the leaf invisible
                 this.style.opacity = "0";
+                this.style.pointerEvents = "none"; // Disable interaction
             });
         });
 
@@ -1451,18 +1451,12 @@ document.addEventListener("DOMContentLoaded", function() {
         closeButton.addEventListener("click", function () {
             popup.style.display = "none"; // Close popup
 
-            // Restore visibility of the last clicked leaf
-            const activeLeafName = popup.getAttribute("data-active-leaf");
-            if (activeLeafName) {
-                const activeLeaf = document.querySelector(`.leaf[data-name='${activeLeafName}']`);
-                if (activeLeaf) {
-                    activeLeaf.style.opacity = "1"; // Reset opacity when closing the popup
-                }
-                popup.removeAttribute("data-active-leaf"); // Clear stored leaf reference
-            }
+            // Keep the leaf hidden even after closing the popup
+            popup.removeAttribute("data-active-leaf"); // Clear stored leaf reference
         });
     });
 </script>
+
 
 
     
