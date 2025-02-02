@@ -288,6 +288,9 @@
             z-index: 4;
         }
     
+
+        /* MOBILE */
+
         @media screen and (max-width: 768px) {
         body, p, h1, h2, h3, h4, h5, h6, a, span, div {
             font-size: 13px !important;
@@ -322,6 +325,13 @@
             height: auto; /* Maintain aspect ratio */
             }
         }
+
+        @media screen and (max-width: 768px) {
+        svg {
+            width: min(90vw, 90vh); /* Increase size while maintaining proportion */
+            }
+        }
+
 
 
 </style>
