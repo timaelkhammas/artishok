@@ -55,11 +55,11 @@
         .dropdown {
             display: none;
             position: fixed;
-            top: 40px;
+            top: 35px;
             left: 10px;
             font-family: "Pantasia Regular";
             font-size: 20px;
-            line-height: 1.1; 
+            line-height: 0.8; 
             z-index: 1;
         }
 
@@ -92,12 +92,13 @@
         .menu-dropdown {
             display: none;
             position: fixed;
-            top: 40px;
+            top: 35px;
             right: 10px;
             font-family: "Pantasia Regular";
             font-size: 20px;
-            line-height: 1.1;
+            line-height: 0.8;
             z-index: 2;
+            margin-top: 0;
         }
 
         .menu-dropdown a {
@@ -107,7 +108,6 @@
             text-decoration: none;
             color: black;
         }
-
 
         .title {
             position: fixed;
@@ -287,8 +287,18 @@
         }
     
         @media screen and (max-width: 768px) {
-            body, p, h1, h2, h3, h4, h5, h6, a, span, div {
-                font-size: 13px !important;
+        body, p, h1, h2, h3, h4, h5, h6, a, span, div {
+            font-size: 13px !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+        .menu-dropdown {
+            top: 25px; /* Reduce further if needed */
+            }
+
+        .dropdown {
+            top: 25px; /* Adjust for "info" dropdown as well */
             }
         }
 
