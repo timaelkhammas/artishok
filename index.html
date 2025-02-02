@@ -59,7 +59,6 @@
             left: 10px;
             font-family: "Pantasia Regular";
             font-size: 20px;
-            line-height: 0.8; 
             z-index: 1;
         }
 
@@ -71,13 +70,11 @@
             color: black;
         }
 
-        
         .dropdown a:hover span,
         .menu-dropdown a:hover span {
             background-color: #ffc61d;
             padding: 2px 4px;
         }
-
 
         .menu {
             position: fixed;
@@ -96,9 +93,12 @@
             right: 10px;
             font-family: "Pantasia Regular";
             font-size: 20px;
-            line-height: 0.8;
             z-index: 2;
             margin-top: 0;
+        }
+
+        .dropdown, .menu-dropdown {
+            line-height: 0.7;
         }
 
         .menu-dropdown a {
@@ -299,6 +299,12 @@
 
         .dropdown {
             top: 25px; /* Adjust for "info" dropdown as well */
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+        .dropdown, .menu-dropdown {
+            line-height: 0.6; /* Ensure the same line-height on mobile */
             }
         }
 
