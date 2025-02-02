@@ -1431,6 +1431,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const popupText = document.getElementById("popupText");
         const closeButton = document.querySelector(".close-btn");
 
+        let activeLeaf = null; // Store the currently clicked leaf
+
         leaves.forEach(leaf => {
             leaf.addEventListener("click", function () {
                 // Get the name and text from the leaf's attributes
@@ -1444,12 +1446,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Show the popup
                 popup.style.display = "flex";
 
-                // Store the clicked leaf as a data attribute
-                popup.setAttribute("data-active-leaf", this.dataset.name);
+                // Store the clicked leaf reference
+                activeLeaf = this;
 
-                // Keep the leaf invisible
-                this.style.opacity = "0";
-                this.style.pointerEvents = "none"; // Disable interaction
+                // Hide the leaf visually but keep it interactive
+                this.style.visibility = "hidden"; // Keeps it clickable
             });
         });
 
@@ -1457,11 +1458,14 @@ document.addEventListener("DOMContentLoaded", function() {
         closeButton.addEventListener("click", function () {
             popup.style.display = "none"; // Close popup
 
-            // Keep the leaf hidden even after closing the popup
-            popup.removeAttribute("data-active-leaf"); // Clear stored leaf reference
+            // Keep the leaf hidden but still clickable
+            if (activeLeaf) {
+                activeLeaf.style.visibility = "visible"; // Restore visibility for clicking again
+            }
         });
     });
 </script>
+
 
 
 
