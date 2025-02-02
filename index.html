@@ -73,7 +73,6 @@
 
         .dropdown a:hover span,
         .menu-dropdown a:hover span {
-            background-color: #ffc61d;
             padding: 2px 4px;
         }
 
@@ -946,7 +945,7 @@
     .popup-content {
         width: 80% !important; /* Make the popup take almost full width */
         max-width: none !important; /* Remove max-width restriction */
-        padding: 10px !important; /* Increase padding for better readability */
+        padding: 20px !important; /* Increase padding for better readability */
     }
 }
 
@@ -1444,28 +1443,6 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("leafPopup").style.display = "none";
     }
     </script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const popup = document.querySelector(".popup");
-    const closeBtn = document.querySelector(".close-btn");
-
-    if (popup && closeBtn) {
-        closeBtn.addEventListener("click", function (event) {
-            event.stopPropagation(); // Prevent any extra bubbling events
-            popup.style.display = "none";
-        });
-
-        // Optional: Close when clicking outside popup content
-        popup.addEventListener("click", function (event) {
-            if (event.target === popup) {
-                popup.style.display = "none";
-            }
-        });
-    }
-});
-</script>
-
     
 
 </body>
