@@ -290,6 +290,30 @@
         .svg-logo-large {
             width: 180px; /* Adjust as needed */
         }
+
+        .popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #f5f4ee;
+            padding: 20px;
+            z-index: 1000;
+            }
+
+        .popup-content {
+            text-align: center;
+            font-family: "Pantasia Regular";
+            font-size: 13px;
+            }
+
+        .popup-content button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+            }
+
     
 
         /* MOBILE */
@@ -360,6 +384,13 @@
         <a href="#artists"><span data-en="artists" data-et="kunstnikud" data-en="artists" data-et="kunstnikud">kunstnikud</span></a>
         <a href="#writers"><span data-en="writers" data-et="kirjutajad" data-en="writers" data-et="kirjutajad">kirjutajad</span></a>
         <a href="#"><span data-en="texts" data-et="tekstid" data-en="texts" data-et="tekstid">tekstid</span></a>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p>The texts will be available soon.</p>
+            <button onclick="closePopup()">OK</button>
+        </div>
     </div>
 
     <!--TITLE / SUBTITLE-->
@@ -1361,6 +1392,31 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
     </script>
+
+
+
+<script>
+    function showPopup() {
+        document.getElementById("popup").style.display = "block";
+    }
+    
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+    
+    // Attach the event listener to "texts" and "tekstid" links
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.menu-dropdown a').forEach(function (link) {
+            if (link.textContent.trim() === "texts" || link.textContent.trim() === "tekstid") {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    showPopup();
+                });
+            }
+        });
+    });
+    </script>
+    
 
 </body>
 </html>
