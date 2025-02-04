@@ -1409,8 +1409,39 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let activeText = null;
+
+    document.querySelectorAll(".leaf").forEach(function (leaf) {
+        leaf.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent the click from propagating to the document
+            
+            let text = this.nextElementSibling; // Assuming text is the next sibling
+
+            if (activeText && activeText !== text) {
+                activeText.style.display = "none"; // Hide the previously active text
+            }
+
+            if (text) {
+                text.style.display = (text.style.display === "block") ? "none" : "block";
+                activeText = text.style.display === "block" ? text : null;
+            }
+        });
+    });
+
+    document.addEventListener("click", function () {
+        if (activeText) {
+            activeText.style.display = "none";
+            activeText = null;
+        }
+    });
+});
+</script>
 
 
+
+<!-- TEXTS BUTTON -->
 <script>
     function showPopup() {
         document.getElementById("popup").style.display = "block";
