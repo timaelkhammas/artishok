@@ -1394,22 +1394,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!--SVG TOUCH MOBILE JS-->
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Select all leaves with the class "leaf"
-        const leaves = document.querySelectorAll(".leaf");
-    
-        leaves.forEach(leaf => {
-            leaf.addEventListener("click", function () {
-                const textElement = this.nextElementSibling; // Assuming text is right after the leaf
-                if (textElement) {
-                    textElement.classList.toggle("visible"); // Toggle visibility
-                }
-            });
-        });
-    });
-    </script>
-
-<script>
 document.addEventListener("DOMContentLoaded", function () {
     let activeText = null;
 
@@ -1437,7 +1421,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-</script>
+    </script>
+
 
 
 
