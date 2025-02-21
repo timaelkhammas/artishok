@@ -293,46 +293,6 @@
             width: 60%; 
         }
 
-        /* Popup Background */
-        .popup {
-            display: none; 
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        /* Popup Content */
-        .popup-content {
-            background: #f5f4ee;
-            padding: 20px;
-            width: 60%; /* Same as the sections */
-            max-width: none; /* Remove the restriction */
-            font-family: "Pantasia Regular";
-            font-size: 20px;
-            text-align: left;
-            position: relative;
-        }
-
-        .popup-content h1, .popup-content h2, .popup-content h3, .popup-content h4, .popup-content h5, .popup-content h6 {
-            font-size: 20px; /* Match section font size */
-            font-weight: normal; /* Remove bold effect */
-            margin-bottom: 10px; /* Add spacing */
-        }
-
-        /* Close Button */
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
 
         .text-section {
             scroll-margin-top: 50px; /* Adds spacing when scrolling to anchor */
@@ -367,6 +327,30 @@
 
         .footnote {
             font-size: 15px; 
+        }
+
+
+        .texts-writers-artists {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two side-by-side columns */
+            gap: 20px; /* Space between columns */
+            width: auto; /* Adjust width to content */
+            max-width: 60%; /* Ensures it doesn’t get too wide */
+            font-family: "Pantasia Regular";
+            font-size: 20px;
+            text-align: left;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 11;
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
         }
     
 
@@ -458,6 +442,60 @@
     <div class="language-switcher">
         ENG
     </div>
+
+    <div class="center-container">
+    <div class="texts-writers-artists">
+        <p>
+            Artists:
+            <br><br>
+            Artjom Astrov
+            <br>
+            Lieven Lahaye
+            <br>
+            Alana Proosa
+            <br>
+            Anu Juurak
+            <br>
+            Gary Markle
+            <br>
+            Hanna Samoson
+            <br>
+            Reigo Nahksepp
+            <br>
+            stuudio kollektiiv
+            <br>
+            Ulvi Haagensen
+            <br>
+            Kaisa Ling
+        </p>
+
+        <p>
+            Writers:
+            <br><br>
+            Eva & Mia
+            <br>
+            Janar Ala
+            <br>
+            Kolkaplika Gerda Nurk
+            <br>
+            Linda Kaljundi
+            <br>
+            Maria Esko
+            <br>
+            Merle Karro-Kalberg
+            <br>
+            Mia Maria Rohumaa
+            <br>
+            Oliver Issak
+            <br>
+            Sanna Kartau
+            <br>
+            Tõnis Kahu
+        </p>
+    </div>
+    </div>
+
+
 
     <div id="artjomastrov" class="text-section">
         <h1>ARTJOM ASTROV</h1>
